@@ -1,0 +1,37 @@
+body{
+  margin: 0;
+}
+nav{
+  display: flex;
+  margin: 0px;
+  background-color: blueviolet;
+  height: 80px;
+  width: 100%;
+  
+}
+ul{
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+li{
+  margin: 0 30px;
+  font-family: sans-serif;
+  font-weight: 600;
+  color: aliceblue;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card{
+  height: 100%;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 30px;
+  text-align: center;
+  font-family: sans-serif;
+}
