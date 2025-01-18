@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import './App.css'
 function App(){
@@ -31,6 +30,7 @@ function App(){
     <ul>
   {todo.map((td, ind) => (
     <li key={ind}>
+    
       <div className="task-content">{td}</div>
       <button className="delete" onClick={() => handledelete(ind)}>Delete</button>
       <button className="edit" onClick={() => HandleEdit(ind)}>Edit</button>
