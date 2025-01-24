@@ -1,0 +1,82 @@
+
+nav {
+    height: 80px;
+    width: 100%;
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    background: linear-gradient(270deg, #000000, #2f1a67, #4b0ba5, #2f1a67, #000000);
+    background-size: 400% 400%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.container {
+    height: 100%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.search {
+    height: 100%;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+nav ul li {
+    list-style: none;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+nav a{
+    list-style: none;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    cursor: pointer;
+    
+}
+.profile{
+ display: flex;
+ align-items: center;
+}
+h3{
+    margin-top: 40px;
+    color: white;
+}
+.profile img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: white;
+}
