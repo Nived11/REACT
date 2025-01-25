@@ -12,6 +12,6 @@ export default async function Auth(req, res, next) {
     req.user = { userID: auth.userID };
     next();
   } catch (error) {
-    res.status(403).send({ msg: "login the expired please login again" });
+    res.status(403).send({ msg: "login is expired please login again" });
   }
 }
