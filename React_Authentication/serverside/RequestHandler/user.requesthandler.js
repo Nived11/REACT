@@ -1,6 +1,7 @@
 import userSchema from "../Models/user.model.js";
 import bcrypt from "bcrypt";
-
+import pkg from "jsonwebtoken";
+const {sign}=pkg
 
 export async function addUser(req,res) {
     const {username,email,password,cpassword}=req.body;
@@ -28,7 +29,8 @@ export async function addUser(req,res) {
 
 
  export async function loginUser(req,res) {
-    const {email,password}=req.body;
+    try {
+        const {email,password}=req.body;
     if(!(email&&password))
         return res.status(404).send({msg:"Fields are empty"});
     const user=await userSchema.findOne({email})
@@ -36,24 +38,30 @@ export async function addUser(req,res) {
         return res.status(404).send({msg:"email is not valid"});
     const success=await bcrypt.compare(password,user.password)
     console.log(success);
-    if(success){
-        res.status(200).send({msg:"login success"})
-    }else{
-        res.status(404).send({msg:"password is not valid"})
+    const token=await sign({userID:user._id},process.env.JWT_KEY,
+        {expiresIn:"24h"})
+    res.status(200).send({msg:"successfully loged in",token})
+        
+    } catch (error) {
+        res.status(400).send({error:error.message})
+        
     }
 }
 
-export async function Home(req,res){
-    try{
-        console.log("end point");
-
-        console.log(req.user);
-        const _id=req.user.userID;
-        const user=await userSchema.findOne({_id});
-        res.status(200).send({username:user.username})  
-    }catch(error){
-        res.status(400).send({error})
+export async function Home(req, res) {
+    try {
+      console.log("End point");
+      if (!req.user || !req.user.userID) {
+        return res.status(401).send({ msg: "User not authenticated" });
+      }
+      const _id = req.user.userID;
+      const user = await userSchema.findOne({ _id });
+      if (!user) {
+        return res.status(404).send({ msg: "User not found" });
+      }
+      res.status(200).send({ username: user.username });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
     }
-}
-// const data=await userSchema.find();
-//         res.status(200).send(data);
+  }
+  

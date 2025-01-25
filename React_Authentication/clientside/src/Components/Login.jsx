@@ -1,11 +1,14 @@
 import { useState } from "react";
 import "../Css/Login.css";  
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+
 function Login() {
     const [data,setData]=useState({
         email:"",
         password:"",
     });
+    const navigate=useNavigate();
+
     const loginUser=async(e)=>{
         e.preventDefault();
         try {
@@ -16,8 +19,20 @@ function Login() {
                 },
                 body:JSON.stringify(data)
             });
-            const msg=await res.json();
-            alert(msg.msg);
+
+            console.log(res);
+            
+            const{ msg,token}=await res.json();
+            if(res.status==200){
+                alert(msg)
+                
+                console.log(msg);
+                
+                sessionStorage.setItem("token",token);
+                navigate("/");
+            }else{
+                // alert(msg);
+            }
         } catch (error) {
             console.log(error);
         }
@@ -29,10 +44,10 @@ function Login() {
             <form action="" id="loginform">
                 <div className="head"><h1>Log in</h1></div>
                 <div className="contentdiv"><input type="text" placeholder="email" name="email" 
-                value={data.email} onChange={(e)=>setData((pre)=>({...pre,[e.target.name]:e.target.value}))}/></div>
+                value={data.email} onChange={(e)=>setData((pre)=>({...pre,[e.target.name]:e.target.value}))} required/></div>
                 <div className="contentdiv"><input type="password" placeholder="password" name="password"
-                value={data.password} onChange={(e)=>setData((pre)=>({...pre,[e.target.name]:e.target.value}))}/></div>
-                <div className="contentdiv"><Link to="/"><button onClick={loginUser}>Sign in</button></Link></div>
+                value={data.password} onChange={(e)=>setData((pre)=>({...pre,[e.target.name]:e.target.value}))} required/></div>
+                <div className="contentdiv"><button onClick={loginUser}>Sign in</button></div>
                 <div className="contentdiv"><h4>Don't Have An Account ? <Link to="/Register">Register Now</Link></h4></div>
             </form>
         </div>
