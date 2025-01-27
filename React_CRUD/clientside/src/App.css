@@ -1,0 +1,157 @@
+.App{
+
+    height:fit-content;
+    width: 100%;
+    /* background-color: rgb(33, 23, 10); */
+   
+}
+.addpart{
+    margin: auto;
+    height: 400px;
+    width: 600px;
+    /* background-color: aqua; */
+}
+
+  .registration-container {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .registration-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+    font-family: sans-serif;
+  }
+  
+  /* Form Styling */
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    text-align: left;
+    font-family: sans-serif;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 95%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #f9f9f9;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #007BFF;
+    background-color: #ffffff;
+  }
+  
+  .submit-btn {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+.listbox{
+    margin: auto;
+    margin-top: 20px;
+    /* background-color: blueviolet; */
+}
+.edit-delete-container {
+    margin: 50px auto;
+    width: 90%;
+    /* background-color: #ffffff; */
+    border-radius: 8px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+    text-align: center;
+  }
+  
+  .edit-delete-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
+  }
+
+  .edit-delete-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .list-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .input-field {
+    width: 150px;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    outline: none;
+    background-color: #f9f9f9;
+  }
+  
+  .input-field:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+  }
+  .btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: #007bff;
+  }
+  
+  .edit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+  }
+  
+  .delete-btn:hover {
+    background-color: #a71d2a;
+  }
+  h1{
+    font-family: sans-serif;
+  }
