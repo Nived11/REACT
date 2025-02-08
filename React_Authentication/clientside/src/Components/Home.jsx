@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Css/Home.css";
+import { ToastContainer, toast } from 'react-toastify';
 import dp from "../assets/dp.png";
 
 function Home() {
-  const [username, setUsername] = useState("User");
+  const [username, setUsername] = useState();
   const navigate = useNavigate();
-
+  const notify = () => {toast.success('Logged Out', {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+    setTimeout(()=>{navigate("/login")},3000);
+}
   useEffect(() => {
     const getHome = async () => {
-      const token = sessionStorage.getItem("token");
+      const token = localStorage.getItem("token");
      
       try {
         const res = await fetch("http://localhost:3000/api/home", {
@@ -39,6 +51,7 @@ function Home() {
   return (
     <>
       <nav>
+      <ToastContainer />
         <div className="container">
           <div className="logo">Adobe</div>
           <div className="search">
@@ -46,12 +59,14 @@ function Home() {
           </div>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li>About</li>
+            <li onClick={notify}>About</li>
             <li>Contact</li>
-            <li><Link to="/login">Login</Link></li>
+            {
+              username?<li onClick={notify}>Logout</li>:<li><Link to="/login">Login</Link></li>
+            }
           </ul>
           <div className="profile">
-            <h3>Hi {username}...</h3>
+            <h3>{`Hii ${username}`}...</h3>
             <img src={dp} alt="Profile" />
           </div>
         </div>

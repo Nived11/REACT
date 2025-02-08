@@ -39,7 +39,7 @@ export async function addUser(req,res) {
     const success=await bcrypt.compare(password,user.password)
     console.log(success);
     const token=await sign({userID:user._id},process.env.JWT_KEY,
-        {expiresIn:"24h"})
+        {expiresIn:"1h"});
     res.status(200).send({msg:"successfully loged in",token})
         
     } catch (error) {

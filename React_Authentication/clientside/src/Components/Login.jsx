@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../Css/Login.css";  
 import { Link,useNavigate } from "react-router-dom";
 
+
 function Login() {
     const [data,setData]=useState({
         email:"",
@@ -28,10 +29,10 @@ function Login() {
                 
                 console.log(msg);
                 
-                sessionStorage.setItem("token",token);
+                localStorage.setItem("token",token);
                 navigate("/");
             }else{
-                // alert(msg);
+                alert(msg);
             }
         } catch (error) {
             console.log(error);
